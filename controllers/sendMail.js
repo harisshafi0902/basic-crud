@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
-const sendMail = async (req, res) => {
-  let tranpsorter = await nodemailer.createTransport({
+const sendMail = async (email) => {
+  let tranpsorter = nodemailer.createTransport({
     // connect with the smtp
 
     host: "smtp.ethereal.email",
@@ -15,7 +15,7 @@ const sendMail = async (req, res) => {
 
   const info = await tranpsorter.sendMail({
     from: "haris@gmail.com", // sender address
-    to: "theharisshafi@gmail.com", // list of receivers
+    to: email, // list of receivers
     subject: "Hello haris✔", // Subject line
     text: "Hello haris, you've got an imaginary email", // plain text body
     html: "<b>Hello world?</b>", // html body
